@@ -46,11 +46,11 @@ test.describe("Form", () => {
       page.getByRole("checkbox", { name: data.hobbies })
     ).toBeChecked();
 
-    // TODO: pill input with dropdown
     for (const subject of data.subjects) {
       await page.locator("#subjectsInput").fill(subject);
       await page.locator("#subjectsInput").press("Enter");
     }
+
     await page.getByLabel("Select picture").setInputFiles({
       name: "file.png",
       mimeType: "image/png",
