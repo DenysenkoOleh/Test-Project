@@ -16,6 +16,7 @@
     "typescript-eslint": "^8.7.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.0.3"
+    "@faker-js/faker": "^9.0.3",
+    "date-fns": "^4.1.0"
   }
 }
