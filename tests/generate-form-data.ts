@@ -5,7 +5,7 @@ const STATE_CITY_MAP = {
   NCR: ["Delhi", "Gurgaon", "Noida"],
   "Uttar Pradesh": ["Agra", "Merrut", "Lucknow"],
   Haryana: ["Karnal", "Panipat"],
-  Rajasthan: ["Jaipur", "Jaisalmer"],
+  Rajasthan: ["Jaipur", "Jaiselmer"],
 };
 
 const SUBJECTS = [
@@ -43,6 +43,7 @@ export function generateFormData() {
     phoneNumber: faker.string.numeric(10),
     dateOfBirth: dateOfBirth,
     formattedDateOfBirth: format(dateOfBirth, "dd MMM yyyy"),
+    dateOfBirthReport: format(dateOfBirth, "dd MMMM,yyyy"),
     hobbies: faker.helpers.arrayElement(HOBBIES),
     address: faker.location.streetAddress(),
     state: state,
