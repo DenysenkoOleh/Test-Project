@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 
 test.describe('Form', () => {
-    test('should submit form', async ({ page }) => {
+    test('should submit only required fields', async ({ page }) => {
         await page.goto('https://demoqa.com/automation-practice-form/');
 
         const firstName = faker.person.firstName();
@@ -16,11 +16,11 @@ test.describe('Form', () => {
         // HACK: label intercepts the click event
         await page.getByText('Other').click();
         await expect(page.getByRole('radio', { name: 'Other' })).toBeChecked();
-        // await page.click('#gender-radio-3');
         await page.getByPlaceholder('Mobile Number').fill(phoneNumber);
 
-        await page.click('#submit');
+        await page.getByRole('button', { name: 'Submit' }).click();
 
-        await expect(page.locator('.modal-title')).toHaveText('Thanks for submitting the form');
+        await expect(page.getByText('Thanks for submitting the form')).toBeVisible();
     });
+
 });
